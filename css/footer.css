@@ -10,8 +10,15 @@
 
 .site-footer__main {
   display: grid;
-  gap: var(--space-xl);
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
   padding-block: var(--space-xl);
+}
+
+/* Divide the stacked sections on mobile so they don't read as one run-on block */
+.site-footer__main > *:not(:first-child) {
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .site-footer__brand > p {
@@ -58,7 +65,7 @@
   margin-bottom: var(--space-sm);
   color: var(--color-text-on-dark);
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -73,7 +80,7 @@
 .site-footer__links a,
 .site-footer__links p {
   color: rgba(255, 255, 255, 0.65);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
@@ -160,6 +167,11 @@
   .site-footer__main {
     grid-template-columns: 1.4fr repeat(3, 1fr);
     gap: var(--space-lg);
+  }
+
+  .site-footer__main > *:not(:first-child) {
+    padding-top: 0;
+    border-top: none;
   }
 }
 
