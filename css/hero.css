@@ -1,0 +1,164 @@
+/* ==========================================================================
+   HERO.CSS
+   Hero section and trust strip.
+   ========================================================================== */
+
+.hero {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+  padding-block: clamp(var(--space-xl), 8vw, var(--space-2xl));
+  overflow: hidden;
+}
+
+.hero h1 {
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-md);
+}
+
+.hero h1 em {
+  color: var(--color-sand);
+  font-style: italic;
+}
+
+.hero__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.hero__lede {
+  color: var(--color-text-on-dark-muted);
+  font-size: 1.1rem;
+  max-width: 42ch;
+  margin-bottom: var(--space-md);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.hero__proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero__proof li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hero__proof strong {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-on-dark);
+}
+
+.hero__proof span {
+  font-size: 0.82rem;
+  color: var(--color-text-on-dark-muted);
+}
+
+/* ---- Hero visual ---- */
+
+.hero__visual {
+  position: relative;
+}
+
+.hero__arch {
+  position: absolute;
+  inset: -8% -6% -8% 10%;
+  background-color: var(--color-sand);
+  border-radius: 50% 50% 45% 55% / 55% 55% 45% 45%;
+  z-index: 0;
+}
+
+.hero__visual img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero__note {
+  position: absolute;
+  bottom: var(--space-md);
+  left: calc(var(--space-md) * -1);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.1rem;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.hero__note svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--color-sand-dark);
+}
+
+@media (min-width: 900px) {
+  .hero__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .hero__note {
+    left: calc(var(--space-lg) * -1);
+  }
+}
+
+/* ---- Trust strip ---- */
+
+.trust-strip {
+  background-color: var(--color-secondary);
+  border-bottom: 1px solid var(--color-border);
+  padding-block: var(--space-md);
+}
+
+.trust-strip__inner {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.trust-strip__inner p {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.trust-strip__inner svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+@media (min-width: 640px) {
+  .trust-strip__inner {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+}

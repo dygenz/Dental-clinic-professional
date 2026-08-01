@@ -1,0 +1,178 @@
+/* ==========================================================================
+   APPOINTMENT.CSS
+   Booking section layout and appointment request form.
+   ========================================================================== */
+
+.appointment {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+  padding-block: clamp(var(--space-xl), 8vw, var(--space-2xl));
+}
+
+.appointment h2 {
+  color: var(--color-text-on-dark);
+}
+
+.appointment__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.appointment__intro > p {
+  color: var(--color-text-on-dark-muted);
+  max-width: 38ch;
+  margin-bottom: var(--space-lg);
+}
+
+.appointment__contact {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.appointment__contact a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  color: var(--color-text-on-dark-muted);
+  font-size: 0.9rem;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.appointment__contact a:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.appointment__contact svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--color-sand);
+}
+
+.appointment__contact strong {
+  display: block;
+  color: var(--color-text-on-dark);
+  font-weight: 600;
+}
+
+/* ---- Booking form ---- */
+
+.booking-form {
+  padding: clamp(var(--space-md), 4vw, var(--space-lg));
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.form-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.form-heading p {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.form-heading span {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-grid :is(input, select, textarea) {
+  padding: 0.78rem 0.9rem;
+  color: var(--color-text);
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-grid :is(input, select, textarea):focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(18, 58, 58, 0.12);
+}
+
+.form-grid textarea {
+  min-height: 6rem;
+}
+
+.form-grid__full {
+  grid-column: 1 / -1;
+}
+
+.booking-form .button {
+  width: 100%;
+  margin-top: var(--space-md);
+}
+
+.form-status {
+  min-height: 1.4em;
+  margin-top: var(--space-sm);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.form-status.is-success {
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.form-status.is-error {
+  color: var(--color-error);
+}
+
+.booking-form.is-submitted :invalid {
+  border-color: var(--color-error);
+}
+
+.form-privacy {
+  margin-top: var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .appointment__grid {
+    grid-template-columns: 1fr 1.15fr;
+    gap: var(--space-2xl);
+  }
+}

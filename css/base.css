@@ -1,0 +1,345 @@
+/* ==========================================================================
+   BASE.CSS
+   Global styles and shared UI components used across sections.
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + var(--space-sm));
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-secondary);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 3.75rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+p {
+  color: var(--color-text);
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+/* ---- Layout ---- */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: clamp(var(--space-sm), 4vw, var(--space-md));
+}
+
+.section {
+  padding-block: clamp(var(--space-xl), 8vw, var(--space-2xl));
+}
+
+.section--soft {
+  background-color: var(--color-soft);
+}
+
+.section--cream {
+  background-color: var(--color-cream);
+}
+
+/* ---- Accessibility ---- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-sm);
+  z-index: 1000;
+  padding: 0.65rem 1rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
+/* ---- Icon sprite (hidden definitions) ---- */
+
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Stroke-based icons inherit from parent color */
+svg:not(.icon-sprite) {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Filled icon variants (star, whatsapp) */
+svg:not(.icon-sprite) use[href="#icon-star"],
+svg:not(.icon-sprite) use[href="#icon-whatsapp"] {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* ---- Section headings ---- */
+
+.section-heading {
+  margin-bottom: clamp(var(--space-lg), 5vw, var(--space-xl));
+}
+
+.section-heading h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.section-heading > p,
+.section-heading div + p {
+  color: var(--color-text-muted);
+  max-width: 42ch;
+  font-size: 1.05rem;
+}
+
+.section-heading--center {
+  text-align: center;
+}
+
+.section-heading--center > p {
+  margin-inline: auto;
+}
+
+.section-heading--split {
+  display: grid;
+  gap: var(--space-md);
+  align-items: end;
+}
+
+@media (min-width: 768px) {
+  .section-heading--split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+/* ---- Eyebrow labels ---- */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: var(--space-sm);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow span:first-child {
+  width: 28px;
+  height: 1px;
+  background-color: currentColor;
+}
+
+.eyebrow--light {
+  color: var(--color-sand-light);
+}
+
+.eyebrow--sand {
+  color: var(--color-sand-dark);
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 48ch;
+  margin-bottom: var(--space-md);
+}
+
+/* ---- Buttons ---- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  transition: background-color var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast), transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.button svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button--sand {
+  background-color: var(--color-sand);
+  color: var(--color-primary);
+}
+
+.button--sand:hover {
+  background-color: var(--color-sand-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.button--dark {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+}
+
+.button--dark:hover {
+  background-color: var(--color-primary-light);
+}
+
+.button--outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.button--outline:hover {
+  background-color: var(--color-soft);
+}
+
+/* ---- Text links ---- */
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.text-link svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-fast);
+}
+
+.text-link:hover svg {
+  transform: translateX(3px);
+}
+
+.text-link--light {
+  color: var(--color-text-on-dark-muted);
+}
+
+.text-link--light:hover {
+  color: var(--color-text-on-dark);
+}
+
+/* ---- Check list ---- */
+
+.check-list {
+  display: grid;
+  gap: var(--space-sm);
+  margin-block: var(--space-md);
+}
+
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  color: var(--color-text-muted);
+}
+
+.check-list svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--color-primary);
+}
+
+/* ---- Scroll reveal ---- */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Reduced motion ---- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,54 @@
+/* ==========================================================================
+   CONTACT.CSS
+   Floating quick-contact button (no standalone contact section in HTML).
+   ========================================================================== */
+
+.quick-contact {
+  position: fixed;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  z-index: 200;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.1rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+  border-radius: 999px;
+  box-shadow: var(--shadow-md);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.quick-contact:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.quick-contact svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 639px) {
+  .quick-contact span {
+    display: none;
+  }
+
+  .quick-contact {
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+}
+
+@media (min-width: 900px) {
+  .quick-contact {
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+  }
+}

@@ -1,0 +1,92 @@
+/* ==========================================================================
+   FAQ.CSS
+   Two-column FAQ layout with native <details> accordion.
+   ========================================================================== */
+
+.faq__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.faq__intro h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.faq__intro > p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.faq-item {
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base);
+}
+
+.faq-item[open] {
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  background-color: var(--color-soft);
+  color: var(--color-primary);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.faq-item summary span::before {
+  content: "+";
+}
+
+.faq-item[open] summary span {
+  transform: rotate(45deg);
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+}
+
+.faq-item p {
+  padding: 0 var(--space-md) var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+@media (min-width: 900px) {
+  .faq__grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-2xl);
+  }
+}

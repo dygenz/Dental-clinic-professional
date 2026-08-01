@@ -1,0 +1,218 @@
+/* ==========================================================================
+   ABOUT.CSS
+   Approach, experience, and first-visit sections.
+   ========================================================================== */
+
+/* ---- Approach ---- */
+
+.approach__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.approach__photos {
+  position: relative;
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.approach__image {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.approach__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.approach__image--primary {
+  aspect-ratio: 4 / 5;
+}
+
+.approach__image--secondary {
+  position: absolute;
+  bottom: calc(var(--space-md) * -1);
+  right: 0;
+  width: 55%;
+  aspect-ratio: 3 / 4;
+  border: 4px solid var(--color-soft);
+  box-shadow: var(--shadow-md);
+}
+
+.approach__seal {
+  position: absolute;
+  top: var(--space-md);
+  left: calc(var(--space-md) * -1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.approach__seal svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-sand);
+}
+
+.approach__content h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.approach__list {
+  display: grid;
+  gap: var(--space-md);
+  margin-block: var(--space-lg);
+}
+
+.approach__list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-md);
+  align-items: start;
+}
+
+.approach__list li > span {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-sand-dark);
+  line-height: 1;
+}
+
+.approach__list li h3 {
+  margin-bottom: 0.35rem;
+}
+
+.approach__list li p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 900px) {
+  .approach__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .approach__photos {
+    padding-bottom: var(--space-lg);
+  }
+}
+
+/* ---- Experience ---- */
+
+.experience__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.experience__content h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.experience__content > p {
+  color: var(--color-text-muted);
+  max-width: 44ch;
+  margin-bottom: var(--space-lg);
+}
+
+.experience__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+
+.experience__stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.experience__stats strong {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.experience__stats span {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.experience__image {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.experience__image img {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+}
+
+.experience__image-caption {
+  position: absolute;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  padding: 0.5rem 0.85rem;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+}
+
+@media (min-width: 900px) {
+  .experience__grid {
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--space-2xl);
+  }
+}
+
+/* ---- First visit ---- */
+
+.visit__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.visit__image {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.visit__image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.visit__content h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.visit__content > p {
+  color: var(--color-text-muted);
+  max-width: 44ch;
+}
+
+@media (min-width: 900px) {
+  .visit__grid {
+    grid-template-columns: 1.05fr 1fr;
+    gap: var(--space-2xl);
+  }
+}

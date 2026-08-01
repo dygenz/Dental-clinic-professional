@@ -1,0 +1,171 @@
+/* ==========================================================================
+   FOOTER.CSS
+   Site footer and back-to-top control.
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--color-text);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.site-footer__main {
+  display: grid;
+  gap: var(--space-xl);
+  padding-block: var(--space-xl);
+}
+
+.site-footer__brand > p {
+  max-width: 30ch;
+  margin-block: var(--space-sm) var(--space-md);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.92rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.65rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  color: var(--color-text-on-dark);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.social-links a:hover {
+  background-color: var(--color-sand);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.social-links svg {
+  width: 18px;
+  height: 18px;
+}
+
+.social-links a[aria-label="WhatsApp"] svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.site-footer__links h2 {
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-on-dark);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.site-footer__links a,
+.site-footer__links p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.site-footer__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.site-footer__links a svg {
+  width: 14px;
+  height: 14px;
+}
+
+.site-footer__links a:hover {
+  color: var(--color-text-on-dark);
+}
+
+.site-footer__links p span {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-block: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.site-footer__bottom div {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.site-footer__bottom a:hover {
+  color: var(--color-text-on-dark);
+}
+
+/* ---- Back to top ---- */
+
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  z-index: 200;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--transition-base), transform var(--transition-base),
+    visibility var(--transition-base), box-shadow var(--transition-fast);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 700px) {
+  .site-footer__main {
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media (min-width: 900px) {
+  .back-to-top {
+    bottom: var(--space-lg);
+    left: var(--space-lg);
+  }
+}

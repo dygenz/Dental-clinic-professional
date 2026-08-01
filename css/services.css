@@ -1,0 +1,128 @@
+/* ==========================================================================
+   SERVICES.CSS
+   Treatment cards in a responsive grid.
+   ========================================================================== */
+
+.service-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(18, 58, 58, 0.2);
+}
+
+.service-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--space-md);
+  background-color: var(--color-soft);
+  color: var(--color-primary);
+  border-radius: 50%;
+}
+
+.service-card__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.service-card__tag {
+  display: inline-block;
+  margin-bottom: var(--space-xs);
+  padding: 0.25rem 0.65rem;
+  background-color: var(--color-sand-light);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+.service-card h3 {
+  margin-bottom: var(--space-xs);
+}
+
+.service-card p {
+  flex: 1;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-md);
+}
+
+.service-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.service-card a svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-fast);
+}
+
+.service-card a:hover svg {
+  transform: translateX(3px);
+}
+
+.service-card--featured {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.service-card--featured h3,
+.service-card--featured p,
+.service-card--featured a {
+  color: var(--color-text-on-dark);
+}
+
+.service-card--featured p {
+  color: var(--color-text-on-dark-muted);
+}
+
+.service-card--featured .service-card__icon {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-sand-light);
+}
+
+.service-card--featured .service-card__tag {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-sand-light);
+}
+
+@media (min-width: 640px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .service-card--featured {
+    grid-row: span 1;
+  }
+}

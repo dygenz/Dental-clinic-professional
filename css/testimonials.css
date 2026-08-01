@@ -1,0 +1,121 @@
+/* ==========================================================================
+   TESTIMONIALS.CSS
+   Patient stories grid and review cards.
+   ========================================================================== */
+
+.testimonial-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.testimonial-card--accent {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.testimonial-card--accent blockquote,
+.testimonial-card--accent figcaption strong {
+  color: var(--color-text-on-dark);
+}
+
+.testimonial-card--accent figcaption small {
+  color: var(--color-text-on-dark-muted);
+}
+
+.stars {
+  display: flex;
+  gap: 0.15rem;
+  margin-bottom: var(--space-sm);
+}
+
+.stars svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-sand-dark);
+  fill: currentColor;
+  stroke: none;
+}
+
+.testimonial-card--accent .stars svg {
+  color: var(--color-sand);
+}
+
+.testimonial-card blockquote {
+  flex: 1;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  margin-bottom: var(--space-md);
+}
+
+.testimonial-card figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.testimonial-card figcaption strong {
+  display: block;
+  font-size: 0.92rem;
+}
+
+.testimonial-card figcaption small {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.avatar--one {
+  background-color: #E8F0ED;
+  color: var(--color-primary);
+}
+
+.avatar--two {
+  background-color: var(--color-sand-light);
+  color: var(--color-primary);
+}
+
+.avatar--three {
+  background-color: #E0EBE9;
+  color: var(--color-primary);
+}
+
+.testimonial-card--accent .avatar--two {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-sand-light);
+}
+
+.review-note {
+  margin-top: var(--space-md);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

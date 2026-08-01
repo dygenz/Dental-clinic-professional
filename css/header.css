@@ -1,0 +1,218 @@
+/* ==========================================================================
+   HEADER.CSS
+   Utility bar, sticky header, brand, navigation, mobile menu.
+   ========================================================================== */
+
+/* ---- Utility bar ---- */
+
+.utility-bar {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark-muted);
+  font-size: 0.85rem;
+}
+
+.utility-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  min-height: var(--utility-height);
+  padding-block: 0.45rem;
+}
+
+.utility-bar a {
+  color: var(--color-sand-light);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.utility-bar a:hover {
+  color: var(--color-text-on-dark);
+}
+
+/* ---- Site header ---- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.site-header--scrolled {
+  box-shadow: var(--shadow-sm);
+  border-bottom-color: var(--color-border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  min-height: var(--header-height);
+}
+
+/* ---- Brand ---- */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.brand__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-soft);
+  color: var(--color-primary);
+  border-radius: 50%;
+}
+
+.brand__mark svg {
+  width: 22px;
+  height: 22px;
+}
+
+.brand__text {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+.brand__text em {
+  display: block;
+  font-size: 0.78em;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.brand--footer .brand__text {
+  color: var(--color-text-on-dark);
+}
+
+.brand--footer .brand__text em {
+  color: var(--color-text-on-dark-muted);
+}
+
+.brand--footer .brand__mark {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-sand-light);
+}
+
+/* ---- Desktop navigation ---- */
+
+.main-nav {
+  display: none;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.main-nav a {
+  font-weight: 500;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+}
+
+.main-nav a:hover {
+  color: var(--color-primary);
+}
+
+.site-header__cta {
+  display: none;
+}
+
+.site-header__cta svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---- Mobile menu toggle ---- */
+
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-primary);
+  background-color: var(--color-soft);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.menu-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+.menu-toggle[aria-expanded="true"] {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+}
+
+/* ---- Mobile menu panel ---- */
+
+.mobile-menu {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  background-color: var(--color-secondary);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.mobile-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: var(--space-md);
+}
+
+.mobile-menu a:not(.button) {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  font-weight: 500;
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+}
+
+.mobile-menu a:not(.button):hover {
+  background-color: var(--color-soft);
+  color: var(--color-primary);
+}
+
+.mobile-menu .button {
+  width: 100%;
+  margin-top: var(--space-xs);
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+/* ---- Desktop breakpoint ---- */
+
+@media (min-width: 900px) {
+  .main-nav {
+    display: flex;
+  }
+
+  .site-header__cta {
+    display: inline-flex;
+  }
+
+  .menu-toggle,
+  .mobile-menu {
+    display: none;
+  }
+}
